@@ -12,7 +12,7 @@
 <!--<script type="text/javascript" src="https://cdns-files.deezer.com/js/min/dz.js"></script>  -->
 
     <!-- Custom Scripts -->
-    <script type="text/javascript" src="/lib/tools.js"></script>
+    <script type="text/javascript" src="lib/tools.js"></script>
 
     
 </head>
@@ -36,16 +36,21 @@
     <input type="button" onclick="login();" value="Login" />
 
      <div id="dz-root"></div>
-<!--    <div id="player" style="width:100%;"></div>-->
+    <div id="player" style="width:100%;"></div>
     <script>
         DZ.init({
-            appId: 'YOUR_APP_ID',
-            channelUrl: 'http://YOUR_DOMAIN/channel.html',
+            appId: '256902',
+            channelUrl: 'http://dev.pcalacarte.net/deezer_js_test/channel.html',
             player: {
+		container: 'player',
+		cover: true,
+		playlist: true,
+		width:650,
+		height:300,
                 onload: function () { 
                     //configure the player with a set of tracks
                     //autoplay set to false
-                    DZ.player.playAlbum(2962681, false);
+                    DZ.player.playPlaylist(3715543182, false);
 
                     //DZ.player.playPlaylist(484767873);
                     //DZ.player.playTracks(['68973465']);
@@ -119,5 +124,13 @@
     <input type="button" onclick="favoriteAlbum(2962681);" value="Favorite album"/>
 
 
+    <h3>Add song to a playlist</h3>
+    <p>
+    !! manage_library permission required <br/>
+
+    POST https://api.deezer.com/2.0/user/me/playlist + playlist_id + song_id_list + access_token
+    </p>
+
+    <input type="button" onclick="addSongToPlaylist(3715543182, 414838122);" value="Add song"/>
 </body>
 </html>
