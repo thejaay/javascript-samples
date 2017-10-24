@@ -29,7 +29,9 @@ h1{
 
 input[type="button"]
 {
-    margin-top: 10px;
+    padding: 3px;
+    padding-right: 12px;
+    padding-left: 12px;
     background-color: #3995cd;
     text-align: center;
     vertical-align: middle;
@@ -39,6 +41,7 @@ input[type="button"]
     font-family: 'Segoe UI' Arial;
     position: relative;
     color: #fff;
+    cursor: pointer;
 }
 
 
