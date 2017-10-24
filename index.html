@@ -4,74 +4,48 @@
     <title>Deezer JavaScript SDK / API</title>
     <link rel="stylesheet" href="css/default.css" />
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<!--	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>-->
-
     <!-- Loading the Deezer SDK -->
 	<script type="text/javascript" src="http://cdn-files.deezer.com/js/min/dz.js"></script>
-<!-- OR -->
-<!--<script type="text/javascript" src="https://cdns-files.deezer.com/js/min/dz.js"></script>  -->
-
     <!-- Custom Scripts -->
-    <script type="text/javascript" src="lib/tools.js"></script>
-
+    <script type="text/javascript" src="lib/tools.js"></script>    
     
 </head>
-
-
 <body>
-
     <h1>Deezer Javascript sample</h1>
-<div id="loginBlock">
-    Please login to Deezer to perform further operations.
-    <br/>
-    <br/>
-    <input type="button" onclick="login();" value="Login" />
-</div>
-<div id="loggedBlock" style="display:none;">Nice to see you <b><span id="userName"></span></b></div>
-     <div id="dz-root"></div>
-    <div id="player" style="width:100%;"></div>
-    <script>
-        DZ.init({
-            appId: '256902',
-            channelUrl: 'http://dev.pcalacarte.net/deezer_js_test/channel.html',
-            player: {
-		container: 'player',
-		cover: true,
-		playlist: true,
-		width:650,
-		height:300,
-                onload: function () { 
-                    //configure the player with a set of tracks
-                    //autoplay set to false
-                    DZ.player.playPlaylist(3715543182, false);
-                }
-            }
-        });
-
-    </script>
-    <br/>
-
-    <div id="container">
-        <!-- To use these methods, the player has to first be loaded with one of the following methods:
-            DZ.player.playPlaylist
-            DZ.player.playAlbum
-            DZ.player.playRadio
-            DZ.player.playSmartRadio
-            DZ.player.playTracks -->
-
+    <div id="loginBlock">
+        Please login to Deezer to perform further operations.
+        <br/>
+        <br/>
+        <input type="button" onclick="login();" value="Login" />
     </div>
-    <br/>
-
-    <h2>Albums</h2> 
-
-    <h3>Add song to a playlist</h3>
-    <p>
-    !! manage_library permission required <br/>
-
-    POST https://api.deezer.com/2.0/user/me/playlist + playlist_id + song_id_list + access_token
-    </p>
-	<div>
-	    <input type="text" id="songID" placeholder="Song ID to add"/><input type="button" onclick="addSongToPlaylist(3715543182, 414838122);" value="Add song"/>
+    <div id="loggedBlock" style="display:none;">Nice to see you <b><span id="userName"></span></b>
+        <div id="dz-root"></div>
+        <div id="player" style="width:100%;"></div>
+	    <br/>
+	    <div id="container">
+	    </div>
+	    <br/>
+        <div>
+            <input type="text" id="playlistID" value="3715543182"/><input type="button" onclick="playPlaylist();" value="Play playlist"/>
+        </div>	    
+		<div>
+		    <input type="text" id="songID" value="414838122"/><input type="button" onclick="addSongToPlaylist();" value="Add song"/>
+		</div>
 	</div>
 </body>
+<script>
+    DZ.init({
+        appId: '256902',
+        channelUrl: 'http://dev.pcalacarte.net/deezer_js_test/channel.html',
+        player: 
+        {
+		    container: 'player',
+		    cover: true,
+		    playlist: true,
+		    width:650,
+		    height:300
+        }
+    });
+</script>
 </html>
+
