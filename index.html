@@ -20,18 +20,27 @@
     </div>
     <div id="loggedBlock" style="display:none;">Nice to see you <b><span id="userName"></span></b>
         <div id="dz-root"></div>
-        <div id="player" style="width:100%;"></div>
+        <div id="player"></div>
 	    <br/>
 	    <div id="container">
 	    </div>
 	    <br/>
-        <div>
-            <input type="text" id="playlistID" value="3715543182"/><input type="button" onclick="playPlaylist();" value="Play playlist"/>
-        </div>	    
-		<div>
+        <div style="display:inline">
+		<select id="playlistChoice"></select>
+            <input type="button" onclick="playPlaylist();" value="Play playlist"/>
 		    <input type="text" id="songID" value="414838122"/><input type="button" onclick="addSongToPlaylist();" value="Add song"/>
 		</div>
+	
+	<div>
+	  <h2>Some songs you can add</h2>
+	  <br/>
+          414838122 : Orelsan - Basique
+		<br/>
+          2325895   : Gainsbourg - Je suis venu te dire que je m'en vais
+		<br/>
+          131738288 : Devin Townsend Project - Failure 
 	</div>
+<div>
 </body>
 <script>
     DZ.init({
